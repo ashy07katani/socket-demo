@@ -1,0 +1,17 @@
+We will be creating a chat application - 
+servr will handle many client
+client will send message to server
+server will distribute message to the clients
+broadcast and distribution
+
+The way we are going to handle many connections
+is by using a module called select
+
+setsockopt() this method will be used so to get rid of 'address already in use'
+
+Setting this socket option avoids the error Address already in use. You’ll see this when starting the server on a port that has connections in the TIME_WAIT state.
+
+For example, if the server actively closed a connection, it’ll remain in the TIME_WAIT state for two minutes or more, depending on the operating system. If you try to start the server again before the TIME_WAIT state expires, then you’ll get an OSError exception of Address already in use. This is a safeguard to make sure that any delayed packets in the network aren’t delivered to the wrong application.
+
+
+ .select() to see which sockets have I/O ready for reading and/or writing. Python’s select() function is a direct interface to the underlying operating system implementation. It monitors sockets, open files, and pipes  until they become readable or writable, or a communication error occurs.select() returns three new lists, containing subsets of the contents of the lists passed in. All of the sockets in the readable list have incoming data buffered and available to be read. All of the sockets in the writable list have free space in their buffer and can be written to. The sockets returned in exceptional have had an error
