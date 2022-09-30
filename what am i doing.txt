@@ -1,0 +1,35 @@
+Step -1 
+A socket is an endpoint that you can name and address in a network.
+Socket programming shows how to use socket APIs to establish communication links between
+remote and local processes.
+The processes that use a socket can reside on the same system or different network,
+Sockets allow you to exchange information between processes on the same machine or across a network
+
+to read more  -  https://www.geeksforgeeks.org/socket-programming-cc/
+
+server processes - 
+
+1) socket(domain,type,protocol) - used to activate the endpoint (machine or node).
+domain: if ipv4 network being used or v6
+type : datagram or stream (tcp or udp)
+protocol : IP case it is 0
+
+we first initialize the endpoint. (telephone leke aoo dono end se)
+
+2)bind - address associate (telephone number denge) socket number is a combination of ip and port
+
+3)Listen - passive mode me waiting for a client (phone call). important thing here is backlog. which is a queue
+which accumulates messages
+
+4) accept - from queue we will accept the request and communication is established.
+
+
+client side we have
+1) socket
+2) connect - in connect we connects the socket referred socket address is provided.
+
+
+
+
+Step - 2
+Sometimes the size of our message could be more that the size of our buffer.
