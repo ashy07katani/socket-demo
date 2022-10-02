@@ -2,7 +2,7 @@ import socket
 import select
 
 HEADER_LENGTH = 10
-IP = 'localhost'
+IP = '192.168.93.9'
 PORT = 1234
 
 #activating the socket
@@ -50,6 +50,7 @@ while True:
         #we are mostly concerned with the read_sockets
         for notified_socket in read_socket:
             if notified_socket == server_socket:
+                print("HELLO")
                 client_socket,client_address = server_socket.accept()
                 user = receieve_message(client_socket)
                 if user is False:
@@ -64,13 +65,13 @@ while True:
                     socket_list.remove(notified_socket)
                     del clients[notified_socket]
                     continue
-            user = clients[notified_socket]
+                user = clients[notified_socket]
             
-            print(f'Received message from {user["data"].decode} : {message["data"].decode("utf-8")}')
+                print(f'Received message from {user["data"].decode} : {message["data"].decode("utf-8")}')
             
-            for client_socket in clients:
-                if client_socket != notified_socket:
-                    client_socket.send(user['header'] + user['data']+message['header']+message['data'])
+                for client_socket in clients:
+                    if client_socket != notified_socket:
+                        client_socket.send(user['header'] + user['data']+message['header']+message['data'])
 
  
                     

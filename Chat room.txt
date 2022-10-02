@@ -15,3 +15,12 @@ For example, if the server actively closed a connection, it’ll remain in the T
 
 
  .select() to see which sockets have I/O ready for reading and/or writing. Python’s select() function is a direct interface to the underlying operating system implementation. It monitors sockets, open files, and pipes  until they become readable or writable, or a communication error occurs.select() returns three new lists, containing subsets of the contents of the lists passed in. All of the sockets in the readable list have incoming data buffered and available to be read. All of the sockets in the writable list have free space in their buffer and can be written to. The sockets returned in exceptional have had an error
+
+
+about set_blocking - 
+By default, TCP sockets are placed in a blocking mode. This means that the control is not returned to your program until some specific operation is complete.
+
+For example, if you call the connect() method, the connection blocks your program until the operation is complete. On many occasions, we don't want to keep our program waiting forever. 
+for more info - 
+https://www.studytonight.com/network-programming-in-python/blocking-and-nonblocking-socket-io
+
